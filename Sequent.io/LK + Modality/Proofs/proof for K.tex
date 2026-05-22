@@ -1,0 +1,81 @@
+\documentclass{article}
+\usepackage{bussproofs}
+\usepackage{graphicx}
+\usepackage[landscape, left = 0cm, right = 0cm]{geometry}
+\usepackage{amsfonts,amssymb}
+\begin{document}
+\begin{tiny}
+\begin{prooftree}
+\AxiomC{$\cdot$}
+\RightLabel{\scriptsize identity}
+\UnaryInfC{$(C\mathcal{R} G) \rightarrow (G\Vdash A),C\mathcal{R} G \vdash C\mathcal{R} G,G\Vdash B$}
+
+\AxiomC{$\cdot$}
+\RightLabel{\scriptsize identity}
+\UnaryInfC{$C\mathcal{R} G \vdash C\mathcal{R} G,G\Vdash A,G\Vdash B$}
+
+\AxiomC{$\cdot$}
+\RightLabel{\scriptsize identity}
+\UnaryInfC{$G\Vdash A,C\mathcal{R} G \vdash G\Vdash A,G\Vdash B$}
+
+\RightLabel{\scriptsize implyL}
+\BinaryInfC{$(C\mathcal{R} G) \rightarrow (G\Vdash A),C\mathcal{R} G \vdash G\Vdash A,G\Vdash B$}
+
+\AxiomC{$\cdot$}
+\RightLabel{\scriptsize identity}
+\UnaryInfC{$G\Vdash B,(C\mathcal{R} G) \rightarrow (G\Vdash A),C\mathcal{R} G \vdash G\Vdash B$}
+
+\RightLabel{\scriptsize implyL}
+\BinaryInfC{$(G\Vdash A) \rightarrow (G\Vdash B),(C\mathcal{R} G) \rightarrow (G\Vdash A),C\mathcal{R} G \vdash G\Vdash B$}
+
+\RightLabel{\scriptsize mImplyL}
+\UnaryInfC{$G\Vdash A \rightarrow B,(C\mathcal{R} G) \rightarrow (G\Vdash A),C\mathcal{R} G \vdash G\Vdash B$}
+
+\RightLabel{\scriptsize implyL}
+\BinaryInfC{$(C\mathcal{R} G) \rightarrow (G\Vdash A \rightarrow B),(C\mathcal{R} G) \rightarrow (G\Vdash A),C\mathcal{R} G \vdash G\Vdash B$}
+
+\RightLabel{\scriptsize shuffleL}
+\UnaryInfC{$C\mathcal{R} G,(C\mathcal{R} G) \rightarrow (G\Vdash A \rightarrow B),(C\mathcal{R} G) \rightarrow (G\Vdash A) \vdash G\Vdash B$}
+
+\RightLabel{\scriptsize implyR}
+\UnaryInfC{$(C\mathcal{R} G) \rightarrow (G\Vdash A \rightarrow B),(C\mathcal{R} G) \rightarrow (G\Vdash A) \vdash (C\mathcal{R} G) \rightarrow (G\Vdash B)$}
+
+\RightLabel{\scriptsize forallL}
+\UnaryInfC{$\forall D.((C\mathcal{R} D) \rightarrow (D\Vdash A \rightarrow B)),(C\mathcal{R} G) \rightarrow (G\Vdash A) \vdash (C\mathcal{R} G) \rightarrow (G\Vdash B)$}
+
+\RightLabel{\scriptsize exchangeL}
+\UnaryInfC{$(C\mathcal{R} G) \rightarrow (G\Vdash A),\forall D.((C\mathcal{R} D) \rightarrow (D\Vdash A \rightarrow B)) \vdash (C\mathcal{R} G) \rightarrow (G\Vdash B)$}
+
+\RightLabel{\scriptsize forallL}
+\UnaryInfC{$\forall F.((C\mathcal{R} F) \rightarrow (F\Vdash A)),\forall D.((C\mathcal{R} D) \rightarrow (D\Vdash A \rightarrow B)) \vdash (C\mathcal{R} G) \rightarrow (G\Vdash B)$}
+
+\RightLabel{\scriptsize forallR}
+\UnaryInfC{$\forall F.((C\mathcal{R} F) \rightarrow (F\Vdash A)),\forall D.((C\mathcal{R} D) \rightarrow (D\Vdash A \rightarrow B)) \vdash \forall E.((C\mathcal{R} E) \rightarrow (E\Vdash B))$}
+
+\RightLabel{\scriptsize mBoxL}
+\UnaryInfC{$C\Vdash \Box A,\forall D.((C\mathcal{R} D) \rightarrow (D\Vdash A \rightarrow B)) \vdash \forall E.((C\mathcal{R} E) \rightarrow (E\Vdash B))$}
+
+\RightLabel{\scriptsize mBoxR}
+\UnaryInfC{$C\Vdash \Box A,\forall D.((C\mathcal{R} D) \rightarrow (D\Vdash A \rightarrow B)) \vdash C\Vdash \Box B$}
+
+\RightLabel{\scriptsize implyR}
+\UnaryInfC{$\forall D.((C\mathcal{R} D) \rightarrow (D\Vdash A \rightarrow B)) \vdash (C\Vdash \Box A) \rightarrow (C\Vdash \Box B)$}
+
+\RightLabel{\scriptsize mImplyR}
+\UnaryInfC{$\forall D.((C\mathcal{R} D) \rightarrow (D\Vdash A \rightarrow B)) \vdash C\Vdash (\Box A) \rightarrow (\Box B)$}
+
+\RightLabel{\scriptsize mBoxL}
+\UnaryInfC{$C\Vdash \Box (A \rightarrow B) \vdash C\Vdash (\Box A) \rightarrow (\Box B)$}
+
+\RightLabel{\scriptsize implyR}
+\UnaryInfC{$ \vdash (C\Vdash \Box (A \rightarrow B)) \rightarrow (C\Vdash (\Box A) \rightarrow (\Box B))$}
+
+\RightLabel{\scriptsize mImplyR}
+\UnaryInfC{$ \vdash C\Vdash (\Box (A \rightarrow B)) \rightarrow ((\Box A) \rightarrow (\Box B))$}
+
+\RightLabel{\scriptsize forallR}
+\UnaryInfC{$ \vdash \forall w.(w\Vdash (\Box (A \rightarrow B)) \rightarrow ((\Box A) \rightarrow (\Box B)))$}
+
+\end{prooftree}
+\end{tiny}
+\end{document}

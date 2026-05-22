@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage{bussproofs}
+\usepackage{graphicx}
+\usepackage[landscape, left = 0cm, right = 0cm]{geometry}
+\usepackage{amsfonts,amssymb}
+\begin{document}
+\begin{tiny}
+\begin{prooftree}
+\AxiomC{$\cdot$}
+\RightLabel{\scriptsize identity}
+\UnaryInfC{$B\mathcal{R} E,\forall D.((B\mathcal{R} D) \rightarrow (D\Vdash \Box A)) \vdash B\mathcal{R} E,E\Vdash A$}
+
+\AxiomC{$\cdot$}
+\RightLabel{\scriptsize identity}
+\UnaryInfC{$B\mathcal{R} F,F\mathcal{R} E,B\mathcal{R} E \vdash F\mathcal{R} E,E\Vdash A$}
+
+\AxiomC{$\cdot$}
+\RightLabel{\scriptsize identity}
+\UnaryInfC{$E\Vdash A,B\mathcal{R} F,F\mathcal{R} E,B\mathcal{R} E \vdash E\Vdash A$}
+
+\RightLabel{\scriptsize implyL}
+\BinaryInfC{$(F\mathcal{R} E) \rightarrow (E\Vdash A),B\mathcal{R} F,F\mathcal{R} E,B\mathcal{R} E \vdash E\Vdash A$}
+
+\RightLabel{\scriptsize forallL}
+\UnaryInfC{$\forall G.((F\mathcal{R} G) \rightarrow (G\Vdash A)),B\mathcal{R} F,F\mathcal{R} E,B\mathcal{R} E \vdash E\Vdash A$}
+
+\RightLabel{\scriptsize mBoxL}
+\UnaryInfC{$F\Vdash \Box A,B\mathcal{R} F,F\mathcal{R} E,B\mathcal{R} E \vdash E\Vdash A$}
+
+\AxiomC{$\cdot$}
+\RightLabel{\scriptsize identity}
+\UnaryInfC{$B\mathcal{R} F,F\mathcal{R} E,B\mathcal{R} E \vdash B\mathcal{R} F,E\Vdash A$}
+
+\RightLabel{\scriptsize implyL}
+\BinaryInfC{$(B\mathcal{R} F) \rightarrow (F\Vdash \Box A),B\mathcal{R} F,F\mathcal{R} E,B\mathcal{R} E \vdash E\Vdash A$}
+
+\RightLabel{\scriptsize forallL}
+\UnaryInfC{$\forall D.((B\mathcal{R} D) \rightarrow (D\Vdash \Box A)),B\mathcal{R} F,F\mathcal{R} E,B\mathcal{R} E \vdash E\Vdash A$}
+
+\RightLabel{\scriptsize shuffleL}
+\UnaryInfC{$B\mathcal{R} E,\forall D.((B\mathcal{R} D) \rightarrow (D\Vdash \Box A)),B\mathcal{R} F,F\mathcal{R} E \vdash E\Vdash A$}
+
+\RightLabel{\scriptsize shuffleL}
+\UnaryInfC{$F\mathcal{R} E,B\mathcal{R} E,\forall D.((B\mathcal{R} D) \rightarrow (D\Vdash \Box A)),B\mathcal{R} F \vdash E\Vdash A$}
+
+\RightLabel{\scriptsize shuffleL}
+\UnaryInfC{$B\mathcal{R} F,F\mathcal{R} E,B\mathcal{R} E,\forall D.((B\mathcal{R} D) \rightarrow (D\Vdash \Box A)) \vdash E\Vdash A$}
+
+\RightLabel{\scriptsize andL}
+\UnaryInfC{$(B\mathcal{R} F) \land (F\mathcal{R} E),B\mathcal{R} E,\forall D.((B\mathcal{R} D) \rightarrow (D\Vdash \Box A)) \vdash E\Vdash A$}
+
+\RightLabel{\scriptsize forallR}
+\UnaryInfC{$\exists v.((B\mathcal{R} v) \land (v\mathcal{R} E)),B\mathcal{R} E,\forall D.((B\mathcal{R} D) \rightarrow (D\Vdash \Box A)) \vdash E\Vdash A$}
+
+\RightLabel{\scriptsize implyL}
+\BinaryInfC{$(B\mathcal{R} E) \rightarrow (\exists v.((B\mathcal{R} v) \land (v\mathcal{R} E))),B\mathcal{R} E,\forall D.((B\mathcal{R} D) \rightarrow (D\Vdash \Box A)) \vdash E\Vdash A$}
+
+\RightLabel{\scriptsize forallL}
+\UnaryInfC{$\forall u.((B\mathcal{R} u) \rightarrow (\exists v.((B\mathcal{R} v) \land (v\mathcal{R} u)))),B\mathcal{R} E,\forall D.((B\mathcal{R} D) \rightarrow (D\Vdash \Box A)) \vdash E\Vdash A$}
+
+\RightLabel{\scriptsize shuffleL}
+\UnaryInfC{$\forall D.((B\mathcal{R} D) \rightarrow (D\Vdash \Box A)),\forall u.((B\mathcal{R} u) \rightarrow (\exists v.((B\mathcal{R} v) \land (v\mathcal{R} u)))),B\mathcal{R} E \vdash E\Vdash A$}
+
+\RightLabel{\scriptsize shuffleL}
+\UnaryInfC{$B\mathcal{R} E,\forall D.((B\mathcal{R} D) \rightarrow (D\Vdash \Box A)),\forall u.((B\mathcal{R} u) \rightarrow (\exists v.((B\mathcal{R} v) \land (v\mathcal{R} u)))) \vdash E\Vdash A$}
+
+\RightLabel{\scriptsize implyR}
+\UnaryInfC{$\forall D.((B\mathcal{R} D) \rightarrow (D\Vdash \Box A)),\forall u.((B\mathcal{R} u) \rightarrow (\exists v.((B\mathcal{R} v) \land (v\mathcal{R} u)))) \vdash (B\mathcal{R} E) \rightarrow (E\Vdash A)$}
+
+\RightLabel{\scriptsize forallR}
+\UnaryInfC{$\forall D.((B\mathcal{R} D) \rightarrow (D\Vdash \Box A)),\forall u.((B\mathcal{R} u) \rightarrow (\exists v.((B\mathcal{R} v) \land (v\mathcal{R} u)))) \vdash \forall C.((B\mathcal{R} C) \rightarrow (C\Vdash A))$}
+
+\RightLabel{\scriptsize mBoxL}
+\UnaryInfC{$B\Vdash \Box (\Box A),\forall u.((B\mathcal{R} u) \rightarrow (\exists v.((B\mathcal{R} v) \land (v\mathcal{R} u)))) \vdash \forall C.((B\mathcal{R} C) \rightarrow (C\Vdash A))$}
+
+\RightLabel{\scriptsize mBoxR}
+\UnaryInfC{$B\Vdash \Box (\Box A),\forall u.((B\mathcal{R} u) \rightarrow (\exists v.((B\mathcal{R} v) \land (v\mathcal{R} u)))) \vdash B\Vdash \Box A$}
+
+\RightLabel{\scriptsize implyR}
+\UnaryInfC{$\forall u.((B\mathcal{R} u) \rightarrow (\exists v.((B\mathcal{R} v) \land (v\mathcal{R} u)))) \vdash (B\Vdash \Box (\Box A)) \rightarrow (B\Vdash \Box A)$}
+
+\RightLabel{\scriptsize mImplyR}
+\UnaryInfC{$\forall u.((B\mathcal{R} u) \rightarrow (\exists v.((B\mathcal{R} v) \land (v\mathcal{R} u)))) \vdash B\Vdash (\Box (\Box A)) \rightarrow (\Box A)$}
+
+\RightLabel{\scriptsize forallL}
+\UnaryInfC{$\forall w.(\forall u.((w\mathcal{R} u) \rightarrow (\exists v.((w\mathcal{R} v) \land (v\mathcal{R} u))))) \vdash B\Vdash (\Box (\Box A)) \rightarrow (\Box A)$}
+
+\RightLabel{\scriptsize forallR}
+\UnaryInfC{$\forall w.(\forall u.((w\mathcal{R} u) \rightarrow (\exists v.((w\mathcal{R} v) \land (v\mathcal{R} u))))) \vdash \forall t.(t\Vdash (\Box (\Box A)) \rightarrow (\Box A))$}
+
+\RightLabel{\scriptsize implyR}
+\UnaryInfC{$ \vdash (\forall w.(\forall u.((w\mathcal{R} u) \rightarrow (\exists v.((w\mathcal{R} v) \land (v\mathcal{R} u)))))) \rightarrow (\forall t.(t\Vdash (\Box (\Box A)) \rightarrow (\Box A)))$}
+
+\end{prooftree}
+\end{tiny}
+\end{document}

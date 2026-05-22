@@ -1,0 +1,12 @@
+\documentclass{article}
+\usepackage{bussproofs}
+\usepackage{graphicx}
+\usepackage[landscape, left = 0cm, right = 0cm]{geometry}
+\usepackage{amsfonts,amssymb}
+\begin{document}
+\begin{tiny}
+\begin{prooftree}
+\AxiomC{$ \vdash (\forall w.(\forall v.(\forall u.(((w\mathcal{R} v) \land (v\mathcal{R} u)) \rightarrow (w\mathcal{R} u))))) \rightarrow (\forall t.(t\Vdash (\Box A) \rightarrow (\Box (\Box A))))$}
+\end{prooftree}
+\end{tiny}
+\end{document}

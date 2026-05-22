@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage{bussproofs}
+\usepackage{graphicx}
+\usepackage[landscape, left = 0cm, right = 0cm]{geometry}
+\usepackage{amsfonts,amssymb}
+\begin{document}
+\begin{tiny}
+\begin{prooftree}
+\AxiomC{$\cdot$}
+\RightLabel{\scriptsize identity}
+\UnaryInfC{$B\mathcal{R} B \vdash B\mathcal{R} B,B\Vdash A$}
+
+\AxiomC{$\cdot$}
+\RightLabel{\scriptsize identity}
+\UnaryInfC{$B\Vdash A,B\mathcal{R} B \vdash B\Vdash A$}
+
+\RightLabel{\scriptsize implyL}
+\BinaryInfC{$(B\mathcal{R} B) \rightarrow (B\Vdash A),B\mathcal{R} B \vdash B\Vdash A$}
+
+\RightLabel{\scriptsize forallL}
+\UnaryInfC{$\forall C.((B\mathcal{R} C) \rightarrow (C\Vdash A)),B\mathcal{R} B \vdash B\Vdash A$}
+
+\RightLabel{\scriptsize mBoxL}
+\UnaryInfC{$B\Vdash \Box A,B\mathcal{R} B \vdash B\Vdash A$}
+
+\RightLabel{\scriptsize implyR}
+\UnaryInfC{$B\mathcal{R} B \vdash (B\Vdash \Box A) \rightarrow (B\Vdash A)$}
+
+\RightLabel{\scriptsize mImplyR}
+\UnaryInfC{$B\mathcal{R} B \vdash B\Vdash (\Box A) \rightarrow A$}
+
+\RightLabel{\scriptsize forallL}
+\UnaryInfC{$\forall w.(w\mathcal{R} w) \vdash B\Vdash (\Box A) \rightarrow A$}
+
+\RightLabel{\scriptsize forallR}
+\UnaryInfC{$\forall w.(w\mathcal{R} w) \vdash \forall u.(u\Vdash (\Box A) \rightarrow A)$}
+
+\RightLabel{\scriptsize implyR}
+\UnaryInfC{$ \vdash (\forall w.(w\mathcal{R} w)) \rightarrow (\forall u.(u\Vdash (\Box A) \rightarrow A))$}
+
+\end{prooftree}
+\end{tiny}
+\end{document}
